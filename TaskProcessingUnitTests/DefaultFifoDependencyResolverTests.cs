@@ -13,7 +13,7 @@ namespace TaskProcessingUnitTests
         [SetUp]
         public void Setup()
         {
-            Strategy = new DefaultFifoDependencyResolver<ITask>();
+            Strategy = new FifoDependencyResolver<ITask>();
         }
 
         [TearDown]

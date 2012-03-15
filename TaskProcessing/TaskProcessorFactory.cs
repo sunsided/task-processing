@@ -26,7 +26,7 @@
         /// <returns>The <see cref="ITaskProcessor{TTask}"/></returns>
         public virtual ITaskProcessor<TTask> Create(IDependencyResolvingStrategy<TTask> strategy)
         {
-            return new SequentialTaskProcessor<TTask>(strategy ?? new DefaultFifoDependencyResolver<TTask>());
+            return new SequentialTaskProcessor<TTask>(strategy ?? new FifoDependencyResolver<TTask>());
         }
     }
 }

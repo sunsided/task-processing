@@ -7,7 +7,7 @@ namespace TaskProcessing
     /// <summary>
     /// The default dependency resolving strategy
     /// </summary>
-    public sealed class DefaultFifoDependencyResolver<TTask> : IDependencyResolvingStrategy<TTask> where TTask : ITask
+    public sealed class FifoDependencyResolver<TTask> : IDependencyResolvingStrategy<TTask> where TTask : ITask
     {
         /// <summary>
         /// Determines the insert position of a given task in a task queue
