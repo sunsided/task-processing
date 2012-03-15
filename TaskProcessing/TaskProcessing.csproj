@@ -73,7 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultFifoDependencyResolver.cs" />
+    <Compile Include="FifoDependencyResolver.cs" />
     <Compile Include="ITaskProcessorFactory.cs" />
     <Compile Include="SequentialTaskProcessor.cs" />
     <Compile Include="IDependencyResolvingStrategy.cs" />
