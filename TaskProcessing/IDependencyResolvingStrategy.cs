@@ -6,8 +6,8 @@ namespace TaskProcessing
     /// <summary>
     /// Strategy for resolving dependencies
     /// </summary>
-    [ContractClass(typeof(DependencyResolverStrategyContracts<>))]
-    public interface IDependencyResolverStrategy<TTask> where TTask : ITask
+    [ContractClass(typeof(DependencyResolvingStrategyContracts<>))]
+    public interface IDependencyResolvingStrategy<TTask> where TTask : ITask
     {
         /// <summary>
         /// Determines the insert position of a given task in a task queue
@@ -21,8 +21,8 @@ namespace TaskProcessing
 
     #region Contracts
 
-    [ContractClassFor(typeof(IDependencyResolverStrategy<>))]
-    internal abstract class DependencyResolverStrategyContracts<TTask> : IDependencyResolverStrategy<TTask> where TTask : ITask
+    [ContractClassFor(typeof(IDependencyResolvingStrategy<>))]
+    internal abstract class DependencyResolvingStrategyContracts<TTask> : IDependencyResolvingStrategy<TTask> where TTask : ITask
     {
         public int ResolveDependency(TTask task, IList<TTask> currentTaskQueue)
         {

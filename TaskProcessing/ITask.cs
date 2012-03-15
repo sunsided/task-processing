@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Threading;
 
@@ -22,6 +23,13 @@ namespace TaskProcessing
         void AddDependency(ITask dependency);
 
         /// <summary>
+        /// Gets the dependencies
+        /// </summary>
+        /// <returns>The dependencies</returns>
+        [Pure]
+        IList<ITask> GetDependencies();
+
+        /// <summary>
         /// Occurs when the work is done by either succeeding or failing
         /// </summary>
         event EventHandler<TaskCompletionEventArgs> WorkDone;
@@ -42,6 +50,12 @@ namespace TaskProcessing
         public void AddDependency(ITask dependency)
         {
             Contract.Requires(dependency != null);
+        }
+
+        public IList<ITask> GetDependencies()
+        {
+            Contract.Ensures(Contract.Result<IList<ITask>>() != null);
+            return null;
         }
 
         public event EventHandler<TaskCompletionEventArgs> WorkDone;

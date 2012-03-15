@@ -39,13 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultFifoDependencyResolver.cs" />
+    <Compile Include="ITaskProcessorFactory.cs" />
     <Compile Include="SequentialTaskProcessor.cs" />
-    <Compile Include="IDependencyResolverStrategy.cs" />
+    <Compile Include="IDependencyResolvingStrategy.cs" />
     <Compile Include="ITask.cs" />
     <Compile Include="ITaskProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskCompletion.cs" />
     <Compile Include="TaskCompletionEventArgs.cs" />
+    <Compile Include="TaskProcessorFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -14,12 +14,12 @@ namespace TaskProcessing
         /// <summary>
         /// The list of tasks to process
         /// </summary>
-        private readonly List<TTask> TaskList = new List<TTask>();
+        private readonly IList<TTask> TaskList = new List<TTask>();
 
         /// <summary>
         /// The dependency resolver to be used
         /// </summary>
-        private readonly IDependencyResolverStrategy<TTask> DependencyStrategy;
+        private readonly IDependencyResolvingStrategy<TTask> DependencyStrategy;
 
         /// <summary>
         /// The mutex used to control access to the list
@@ -35,7 +35,7 @@ namespace TaskProcessing
         /// Initializes a new instance of the <see cref="SequentialTaskProcessor{TTask}"/> class
         /// </summary>
         /// <param name="dependencyStrategy">The strategy used to resolve dependencies</param>
-        public SequentialTaskProcessor(IDependencyResolverStrategy<TTask> dependencyStrategy)
+        public SequentialTaskProcessor(IDependencyResolvingStrategy<TTask> dependencyStrategy)
         {
             Contract.Requires(dependencyStrategy != null);
             DependencyStrategy = dependencyStrategy;
