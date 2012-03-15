@@ -94,6 +94,8 @@ namespace TaskProcessing
                     if (taskList.Count > 0)
                     {
                         task = taskList[0];
+                        Contract.Assume(task != null);
+
                         taskList.RemoveAt(0);
                     }
                     else
