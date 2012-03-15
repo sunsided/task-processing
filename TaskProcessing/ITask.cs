@@ -7,6 +7,7 @@ namespace TaskProcessing
     /// <summary>
     /// Interface for Tasks
     /// </summary>
+    [ContractClass(typeof(TaskContracts))]
     public interface ITask
     {
         /// <summary>
@@ -30,4 +31,24 @@ namespace TaskProcessing
         /// </summary>
         WaitHandle TaskCompletionWaitHandle { [Pure] get; }
     }
+
+    #region Contracts
+
+    [ContractClassFor(typeof(ITask))]
+    internal abstract class TaskContracts : ITask
+    {
+        public abstract void Execute();
+
+        public void AddDependency(ITask dependency)
+        {
+            Contract.Requires(dependency != null);
+        }
+
+        public event EventHandler<TaskCompletionEventArgs> WorkDone;
+
+        public abstract WaitHandle TaskCompletionWaitHandle { get; }
+    }
+
+    #endregion Contracts
+
 }
