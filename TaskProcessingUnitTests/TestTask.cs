@@ -9,7 +9,7 @@ namespace TaskProcessingUnitTests
     /// <summary>
     /// A simple test task that does nothing and will either succeed or fail
     /// </summary>
-    public class TestTask : ITask
+    internal class TestTask : ITask
     {
         /// <summary>
         /// The internal dependency list
